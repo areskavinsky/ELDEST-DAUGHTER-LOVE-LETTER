@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eee6de">
+  <title>THE ART OF WINNING AN ELDEST DAUGHTER'S HEART</title>
+  <style>
+    :root {
+      --paper: #eee6de;
+      --ink: #201e1d;
+      --muted: #77716b;
+      --line: #d2c8bf;
+      --terracotta: #966b5d;
+      --accent: #bd6652;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+    }
+    button, textarea, input { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, textarea:focus-visible, input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: clamp(100px, 14vh, 150px) 28px 100px clamp(28px, 30.5vw, 390px);
+    }
+    .page-inner {
+      width: min(700px, calc(100vw - clamp(58px, 32vw, 430px)));
+    }
+    .view { animation: enter .42s ease both; }
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .index-button {
+      position: fixed;
+      top: 22px;
+      right: 24px;
+      z-index: 10;
+      padding: 7px 10px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid transparent;
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .index-button:hover { color: var(--accent); border-color: var(--line); }
+
+    .topline {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      min-width: 0;
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .topline-title {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .topline-page { flex-shrink: 0; color: var(--terracotta); }
+    .rule {
+      height: 1px;
+      margin-top: 60px;
+      background: var(--line);
+    }
+    .eyebrow {
+      margin: 80px 0 42px;
+      color: var(--terracotta);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    h1, h2, p { margin-top: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: normal; }
+
+    .hero-title,
+    .chapter-title,
+    .special-title {
+      max-width: 700px;
+      margin-bottom: 30px;
+      color: var(--ink);
+      font-size: clamp(4.3rem, 11.5vw, 9rem);
+      line-height: .82;
+      letter-spacing: -.075em;
+    }
+    .accent {
+      display: block;
+      color: var(--accent);
+      font-style: italic;
+      letter-spacing: -.08em;
+    }
+    .intro-copy,
+    .chapter-theme,
+    .special-copy {
+      max-width: 530px;
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1.65;
+    }
+    .byline {
+      margin-bottom: 35px;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 17px;
+      border-radius: 999px;
+      font-size: .78rem;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .primary-button {
+      color: var(--paper);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .primary-button:hover { background: #a65343; transform: translateY(-2px); }
+    .secondary-button {
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+    }
+    .secondary-button:hover { color: var(--accent); border-color: var(--accent); }
+    .cover-note {
+      margin-top: 105px;
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .letter-area {
+      max-width: 620px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .letter-label {
+      margin-bottom: 22px;
+      color: var(--terracotta);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .letter-text {
+      min-height: 190px;
+      margin-bottom: 35px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.85;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .letter-text.empty {
+      color: #a19790;
+      font-size: 1rem;
+      font-style: italic;
+    }
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 620px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .page-nav .primary-button,
+    .page-nav .secondary-button { min-width: 145px; }
+
+    .answer-box {
+      max-width: 620px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .answer-percent {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-style: italic;
+    }
+    .love-range { width: min(500px, 100%); accent-color: var(--accent); cursor: pointer; }
+    .love-number {
+      width: 78px;
+      margin-left: 8px;
+      padding: 8px;
+      color: var(--ink);
+      background: transparent;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+    .special-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .message-box {
+      display: block;
+      width: min(620px, 100%);
+      min-height: 220px;
+      margin-bottom: 12px;
+      padding: 16px 0;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.85;
+      outline: none;
+      resize: vertical;
+    }
+    .status { min-height: 24px; margin: 0 0 18px; color: var(--muted); font-size: .75rem; }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(32, 30, 29, .25);
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal {
+      width: min(460px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      padding: 26px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .modal-title { margin: 0; color: var(--ink); font-size: 1.7rem; }
+    .close-button {
+      padding: 2px 9px;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 1.1rem;
+    }
+    .contents-list { display: grid; gap: 3px; margin: 0; padding: 0; list-style: none; }
+    .contents-list button {
+      width: 100%;
+      padding: 11px 8px;
+      color: var(--ink);
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+    .contents-list button:hover { color: var(--accent); }
+    .contents-list span {
+      display: inline-block;
+      width: 42px;
+      color: var(--terracotta);
+      font-family: var(--serif);
+      font-style: italic;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 700px) {
+      .page { padding: 88px 24px 70px; }
+      .page-inner { width: 100%; }
+      .index-button { top: 16px; right: 18px; }
+      .topline {
+        padding-right: 72px;
+        font-size: .61rem;
+        letter-spacing: .09em;
+        white-space: normal;
+      }
+      .rule { margin-top: 35px; }
+      .eyebrow { margin: 55px 0 28px; font-size: .68rem; letter-spacing: .11em; }
+      .hero-title, .chapter-title, .special-title { font-size: clamp(3.45rem, 15vw, 6rem); line-height: .86; }
+      .intro-copy, .chapter-theme, .special-copy { font-size: 1rem; }
+      .cover-note { margin-top: 65px; }
+      .letter-text, .message-box { font-size: 1.08rem; }
+      .page-nav { flex-direction: column-reverse; }
+      .page-nav button { width: 100%; }
+      .love-number { margin-left: 0; margin-top: 14px; }
+      .special-actions { flex-direction: column; }
+      .special-actions button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <button class="index-button" id="indexButton" type="button">Index</button>
+
+  <main class="page">
+    <div class="page-inner" id="app" aria-live="polite"></div>
+  </main>
+
+  <div class="modal-backdrop" id="contentsModal" role="dialog" aria-modal="true" aria-labelledby="contentsTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 class="modal-title" id="contentsTitle">The parts</h2>
+        <button class="close-button" id="closeContents" type="button" aria-label="Close index">×</button>
+      </div>
+      <ol class="contents-list" id="contentsList"></ol>
+    </div>
+  </div>
+
+  <script>
+    /* =============================================================
+       EDIT SEMUA KATA LEWAT VISUAL STUDIO CODE DI OBJECT BOOK INI.
+
+       - subtitle    = kata-kata di sampul.
+       - indexLabel  = TULISAN DI MENU INDEX (popup saat klik Index di pojok kanan atas).
+       - title       = judul besar halaman bab.
+       - label       = tulisan kecil di atas judul bab.
+       - theme       = penjelasan tema (bisa dikosongkan '' kalau tidak mau tema).
+       - letter      = isi surat pribadi kamu. Selalu pakai backtick ` agar
+                      bisa menulis beberapa baris dan tanda apostrof dengan aman.
+         Contoh:
+         letter: `Hai, Khailafa.
+
+         Tulis suratmu di sini.
+
+         — Bayu`,
+       - placeholder = teks sementara jika letter masih kosong.
+       ============================================================= */
+    const BOOK = {
+      recipient: 'Khailafa Nurul Fadilah',
+      author: 'Bayu',
+      subtitle: 'One life is not enough to love you. So please, let me love you in every life i have.',
+      chapters: [
+        {
+          indexLabel: 'UNDERSTANDING HER.',
+          title: 'Understanding her.',
+          label: 'understanding himself, his independence, his dreams, and the space he needs.',
+          theme: 'Manusia bukanlah objek untuk diperbaiki, melainkan pribadi yang bertumbuh lewat penerimaan.',
+          letter: `Katanya, memenangkan hati seorang anak perempuan sulung bukanlah hal yang mudah. Kamu mandiri, tahu apa yang kamu inginkan, dan sudah belajar membangun kehidupanmu sendiri. Kamu adalah perempuan yang tahu bagaimana caranya terus melangkah, bahkan ketika sebenarnya kamu membutuhkan waktu sejenak untuk menarik napas.
+
+Dan mencintai seseorang sepertimu telah mengajarkanku bahwa memahami dirimu sama pentingnya dengan mencintaimu.
+
+Kamu tidak membutuhkan seseorang untuk mengambil alih duniamu. Kamu layak mendapatkan seseorang yang ingin memahami duniamu. Seseorang yang mengerti bahwa terkadang kamu membutuhkan ruang untuk dirimu sendiri, dan memberimu kesempatan untuk bernapas bukan berarti aku mencintaimu lebih sedikit.
+
+Seseorang yang mau mendengarkan, bahkan ketika tidak ada yang perlu diperbaiki. Seseorang yang memahami bahwa cinta bukan tentang harus bersama setiap detik, melainkan tentang mengetahui bahwa kepedulian itu tetap ada, bahkan ketika kehidupan sedang begitu sibuk.
+
+Dan aku sedang belajar memahami itu, sedikit demi sedikit.
+
+Aku belajar bahwa mencintaimu bukan berarti aku harus memahami segala hal tentang dirimu saat ini juga. Melainkan bersedia untuk terus belajar, mendengarkanmu dengan lebih baik, dan menghargai setiap momen kecil yang bisa kita bagi bersama.
+
+Aku tahu mungkin kita tidak selalu merasakan segala sesuatu dengan kecepatan yang sama, dan itu tidak apa-apa. Bagiku, yang terpenting adalah kita bisa berada di sini dan memilih untuk memberi kesempatan pada cerita kita agar terus tumbuh.
+
+Karena aku tidak ingin terburu-buru dengan hatimu, Khailafa. Aku ingin mengenalnya.
+
+Aku ingin tahu tentang mimpi-mimpi yang sedang kamu perjuangkan, hal-hal kecil yang membuatmu tersenyum, saat-saat ketika kamu membutuhkan ketenangan, dan semua sisi dirimu yang menjadikanmu seperti sekarang ini.
+
+Dan jika ada satu hal yang kuharapkan bisa kamu rasakan ketika bersamaku, itu adalah bahwa kamu bisa selalu menjadi dirimu sendiri.
+
+Kamu tidak harus selalu kuat. Kamu tidak harus sudah memahami segala hal dalam hidupmu. Kamu boleh menjadi dirimu sendiri, dan aku akan tetap bersyukur karena kamu mengizinkanku menjadi bagian dari duniamu.
+
+Mungkin, itulah arti sebenarnya dari memenangkan hatimu.
+
+Bukan membuatmu jatuh cinta kepadaku secepat mungkin, melainkan membangun sesuatu yang indah bersamamu, satu hari demi satu hari.
+
+**Dan, aku bahagia karena cerita kita masih bisa berlanjut.**
+
+*— a little guide to understanding you, growing with you, and loving you better, one day at a time.*`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        },
+        {
+          indexLabel: 'THE THINGS YOU DONT ALWAYS SAY',
+          title: "The things you don't always say.",
+          label: "listening to things that aren't always easy for him to say.",
+          theme: 'Beberapa hal memang harus kau jalani walau kau menangis ketika melakukannya. Sewaktu-waktu kau akan membaca apa yang tak ingin kau baca, kau akan menulis apa yang tak ingin kau tulis. Namun, kau harus tetap melakukannya. Karena pengalaman itu yang membuat hidupmu terasa hidup. ',
+          letter: `Kamu tahu, salah satu hal yang mulai kupahami tentang dirimu adalah kamu tidak selalu harus mengatakan semua yang sedang kamu rasakan.
+
+Terkadang, kamu hanya membutuhkan waktu untuk dirimu sendiri. Terkadang, kamu lelah, memiliki banyak hal di pikiranmu, atau memang sedang tidak ingin berbicara. Dan sejujurnya, aku sedang belajar memahami bahwa itu tidak apa-apa.
+
+Aku tahu kamu punya tanggung jawabmu sendiri, mimpi-mimpimu sendiri, dan kehidupan yang terkadang membuat energimu terkuras sebelum hari berakhir.
+
+Dan aku tidak ingin hubungan kita terasa seperti satu lagi hal yang harus kamu usahakan di tengah kesibukanmu.
+
+Aku ingin kamu tahu bahwa kamu bisa menceritakan harimu kepadaku, meskipun itu hanya hal kecil. Kamu bisa bercerita ketika ada sesuatu yang mengganggumu, ketika ada hal yang membuatmu bahagia, atau ketika harimu terasa begitu melelahkan.
+
+Namun, kamu tidak perlu memaksakan diri untuk berbicara ketika energimu memang sedang tidak cukup.
+
+Bukan berarti aku akan selalu langsung memahamimu. Mungkin akan ada saat ketika aku tidak tahu apa yang sedang kamu pikirkan, atau ketika aku membutuhkan bantuanmu agar bisa sedikit lebih memahami dirimu.
+
+Tetapi aku ingin kita mempelajari semua itu bersama-sama.
+
+Karena mengenalmu bukan hanya tentang mengetahui hal-hal yang kamu ceritakan kepadaku. Ini juga tentang belajar mendengarkan, memahami kebiasaan-kebiasaan kecilmu, dan mencari tahu bagaimana caranya hadir untukmu dengan cara yang benar-benar membuatmu nyaman.
+
+Dan jika ada satu hal yang kuharapkan tidak pernah kamu rasakan ketika bersamaku, itu adalah keharusan untuk berpura-pura baik-baik saja ketika sebenarnya tidak.
+
+Kamu boleh memiliki hari-hari yang baik dan hari-hari yang buruk. Hari ini kamu bisa banyak bercerita, besok mungkin kamu lebih banyak diam. Terkadang kamu mungkin ingin aku berada dekat denganmu, dan di waktu lain kamu membutuhkan sedikit ruang.
+
+Kamu tidak harus menjadi versi dirimu yang sama setiap hari agar aku bisa tetap menghargaimu.
+
+Aku hanya ingin terus mengenalmu, Bukan karena ada sesuatu dalam dirimu yang perlu diperbaiki, melainkan karena kamu adalah seseorang yang sungguh-sungguh ingin kupahami.
+
+Dan aku bahagia karena bisa mengenalmu lebih jauh, satu hari demi satu hari.
+
+— because I don't just want to hear your words. I want to understand you, too.`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        },
+        {
+          indexLabel: 'LOVING YOU IN YOUR OWN WAY',
+          title: 'Loving you in your own way.',
+          label: 'loving and respecting yourself without trying to change it.',
+          theme: 'Di rumah kamu boleh jadi anak pertama, yang selalu terlihat dewasa. Tapi dihubungan ini kamu boleh jadi apa saja, bahkan jadi anak kecil manja, kamu boleh jadi dirimu sendiri.',
+          letter: `Menurutku, salah satu hal indah dari mengenal seseorang adalah menyadari bahwa cinta bukan berarti kita harus mengubahnya menjadi sosok yang kita inginkan.
+
+Dan aku tidak ingin melakukan itu kepadamu.
+
+Aku tahu kamu punya caramu sendiri dalam menghadapi berbagai hal. Kamu punya ritmemu sendiri, batasanmu sendiri, dan caramu sendiri untuk menemukan ketenangan ketika kehidupan terasa begitu melelahkan.
+
+Aku mungkin tidak selalu langsung memahami setiap hal kecil tentang dirimu, tetapi aku tidak ingin menjadikan keinginanku untuk mengubahmu sebagai respons pertamaku.
+
+Aku lebih memilih belajar bagaimana memahami dirimu.
+
+Aku ingin memahami kapan kamu membutuhkan seseorang untuk mendengarkan dan kapan kamu hanya membutuhkan ketenangan. Aku ingin belajar membedakan antara hadir untukmu dan tanpa sengaja membuatmu merasa harus memberikan seluruh waktumu kepadaku.
+
+Di saat yang sama, aku juga berharap kita bisa menyediakan ruang untuk satu sama lain.
+
+Karena aku juga punya perasaan, mimpi, dan hal-hal kecil yang ingin kubagikan kepadamu. Aku ingin menceritakan hariku, mendengar ceritamu, tertawa karena hal-hal sederhana, dan memiliki momen ketika kita memilih menghabiskan waktu bersama hanya karena kita memang menginginkannya.
+
+Menurutku, saling mencintai bukan berarti kita harus melakukan semuanya dengan benar sejak awal.
+
+Menurutku, cinta berarti kita terus belajar bagaimana mencintai satu sama lain dengan cara yang terasa baik bagi kita berdua.
+
+Kamu boleh menjadi dirimu sendiri, dan aku juga boleh menjadi diriku sendiri. Lalu, di antara semua perbedaan itu, kita belajar bagaimana menjadi tim yang lebih baik.
+
+Aku tidak ingin menjadi seseorang yang membuat duniamu terasa semakin sempit.
+
+Aku ingin menjadi seseorang yang membuat keberadaanku di duniamu terasa sedikit lebih hangat.
+
+Dan aku berharap, dengan caraku sendiri, aku bisa menjadi orang itu untukmu.
+
+— not to change you into someone else, but to love the person you already are.`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        },
+        {
+          indexLabel: 'THE LITTLE THINGS I LOVE ABOUT YOU',
+          title: 'The little things I love about you.',
+          label: 'the little details I notice that make you feel special.',
+          theme: 'Mari berkelana tanpa rencana, biarkan angin dan semesta jadi pemandu. Karena setiap tempat indah akan sia-sia jika tidak ada kamu untuk aku kagumi disana.',
+          letter: `Terkadang aku bertanya-tanya apakah kamu menyadari betapa banyak hal kecil dari dirimu yang aku hargai.
+
+Bukan selalu tentang momen-momen besar atau hal-hal yang kamu lakukan untuk membuatku bahagia. Terkadang, sesederhana caramu menceritakan sesuatu yang kamu sukai, caramu terus melangkah setelah melewati hari yang panjang, atau caramu begitu fokus pada hal-hal yang berarti bagimu.
+
+Aku mengagumi kenyataan bahwa kamu punya tujuanmu sendiri. Kamu tahu kehidupan seperti apa yang ingin kamu bangun, dan kamu terus berusaha menuju ke sana, bahkan ketika segala sesuatunya tidak selalu berjalan sesuai harapanmu.
+
+Aku tahu terkadang kamu juga bisa keras kepala. Namun, sejujurnya, ada sesuatu dari caramu mempertahankan apa yang kamu yakini yang justru membuatku ingin lebih memahami dirimu.
+
+Lalu ada hal-hal kecil yang mungkin terasa biasa saja bagimu. Percakapan kita, momen-momen acak ketika kita tertawa, atau bagaimana sebuah pesan sederhana darimu bisa membuat hari yang biasa terasa berbeda.
+
+Mungkin kamu bahkan tidak menyadari semua itu.
+
+Tapi aku menyadarinya.
+
+Menurutku, aku tidak membutuhkan alasan besar untuk menghargaimu setiap hari. Aku bisa mencintai caramu berpikir, caramu memandang dunia, hal-hal yang sedang kamu perjuangkan, bahkan kebiasaan-kebiasaan kecil yang membuatmu menjadi dirimu yang unik.
+
+Dan aku yakin masih banyak hal tentang dirimu yang belum kutemukan.
+
+Itulah salah satu hal yang membuat proses mengenalmu begitu istimewa.
+
+Aku tidak ingin menganggap diriku sudah mengetahui segalanya tentangmu hanya karena sekarang kita bersama. Aku ingin terus menemukan hal-hal baru, mendengar cerita-cerita baru, dan menemukan lebih banyak alasan untuk tersenyum setiap kali memikirkanmu.
+
+Jadi, jika suatu saat kamu bertanya-tanya apa yang membuatmu begitu istimewa bagiku, jawabannya bukan hanya satu hal besar.
+
+Melainkan dirimu, dengan segala hal kecil yang menjadikanmu seperti sekarang ini.
+
+— maybe you don't see all the things I see in you, but I hope I get to remind you of them along the way.`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        },
+        {
+          indexLabel: 'US, AT OUR OWN PACE',
+          title: 'Us, at our own pace.',
+          label: 'being in a relationship honestly, calmly, and without rushing.',
+          theme: 'Sejak pertama kali aku jatuh cinta kepadamu, dunia seperti mengubah cara pandangku. Dari ribuan wajah yang lalu-lalang, hanya kamu yang selalu ingin kulihat. Dari banyak suara yang terdengar, hanya kamu yang mampu membuat hati terasa teduh. Padahal kamu tetap manusia biasa. Masih punya kurang,masih punya salah,masih jauh dari kata sempurna. Namun entah mengapa, hati selalu mememukan alasan untuk menganggapnya berbeda. Dan mungkin itu yang membuat cinta terasa indah. Karena sejak aku jatuh hati. kamu bukan lagi sekedar seseorang. Kamu menjadi nama yang nilainya mengalahkan ribuan manusia lainnya.',
+          letter: `Jika ada satu hal yang ingin aku ingatkan kepada kita, itu adalah bahwa kita tidak harus memahami dan menyelesaikan semuanya sekarang juga.
+
+Kita adalah dua orang yang berbeda, dengan pengalaman, cara berpikir, dan cara memahami cinta masing-masing. Jadi, wajar jika kita tidak selalu merasakan atau mengungkapkan segala sesuatu dengan cara yang persis sama.
+
+Dan menurutku, itu adalah sesuatu yang bisa kita pelajari bersama.
+
+Aku bahagia dengan keadaan kita sekarang. Aku bahagia karena kita bisa berbagi cerita tentang hari-hari kita, menciptakan kenangan kecil, dan memiliki momen-momen yang menjadi milik kita berdua.
+
+Aku tidak ingin kita menghabiskan terlalu banyak waktu untuk mengkhawatirkan hubungan kita seharusnya seperti apa, sampai lupa menikmati apa yang sudah kita miliki sekarang.
+
+Aku tahu cinta bisa tumbuh dengan cara yang berbeda-beda. Terkadang cinta tumbuh melalui momen-momen yang mendebarkan, dan terkadang cinta tumbuh melalui hari-hari biasa ketika kita sekadar hadir untuk satu sama lain.
+
+Melalui percakapan yang membuat kita tertawa. Melalui usaha-usaha kecil yang kita lakukan. Melalui proses belajar kapan harus mendengarkan, kapan harus berbicara, dan kapan harus memberikan ruang satu sama lain.
+
+Aku tidak mengharapkan kita menjadi sempurna. Aku juga tidak berharap setiap hari terasa seperti film romantis.
+
+Aku hanya berharap kita terus jujur satu sama lain, terus berusaha, dan terus menemukan cara agar hubungan ini terasa baik bagi kita berdua.
+
+Dan jika perasaan kita tidak selalu tumbuh dengan kecepatan yang sama, aku tidak ingin hal itu menjadi alasan bagi kita untuk melupakan hal-hal baik yang sedang kita bangun.
+
+Yang penting adalah kita sama-sama berada di sini, bersedia memahami satu sama lain dan melihat ke mana perjalanan ini akan membawa kita.
+
+Aku ingin menikmati proses ini bersamamu, bukan menghabiskan setiap momen dengan menghitung seberapa jauh kita sudah melangkah atau seberapa jauh lagi kita harus berjalan.
+
+Karena ini bukan perlombaan,
+
+Ini adalah cerita kita.
+
+Dan aku bahagia bisa menjalaninya bersamamu.
+
+— no need to rush, no need to be perfect. Just two people learning how to love each other, one day at a time`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        },
+        {
+          indexLabel: 'THE FUTURE WE CAN BUILD',
+          title: 'The future we can build.',
+          label: 'dreams, growth, and the potential future built together.',
+          theme: 'Dan sebagai cara yang paling baik dari bentuk atau caraku mencintaimu, aku mendoakanmu. Agar kamu bertumbuh semekar-mekarnya, secantik-cantiknya, dan sebaik-baiknya. Agar kamu juga dapat memaafkan segala bentuk luka baik dariku atapun dari orang yang pernah kamu ceritakan kepadaku. Aku juga tidak ingin mengingatmu sebagai rasa sakit, melainkan aku mau melihatmu berdiri paling tinggi dengan segala pencapaianmu di kemudian hari.',
+          letter: `Aku tahu kamu punya mimpi-mimpi yang ingin kamu wujudkan, hal-hal yang ingin kamu buktikan kepada dirimu sendiri, dan masa depan yang sedang kamu perjuangkan dengan sungguh-sungguh.
+
+Dan aku ingin kamu tahu bahwa aku mengagumi hal itu darimu.
+
+Aku tidak ingin menjadi seseorang yang memintamu mengesampingkan mimpi-mimpimu hanya untuk memberiku lebih banyak ruang. Aku ingin menjadi seseorang yang memahami betapa berartinya mimpi-mimpi itu bagimu, seseorang yang menyemangatimu untuk terus melangkah bahkan ketika keadaan terasa sulit.
+
+Dan ketika kamu sedang berjuang menuju kehidupan yang kamu inginkan, aku tahu aku juga punya hal-hal yang perlu kuusahakan.
+
+Ada banyak hal yang masih perlu kupelajari, tujuan yang ingin kucapai, dan bagian dari hidupku yang ingin kuperbaiki. Aku ingin menjadi seseorang yang bisa menjaga dirinya sendiri dengan lebih baik, berdiri lebih tegak di atas kakinya sendiri, dan membangun masa depan yang bisa dia banggakan.
+
+Bukan karena aku ingin membuktikan bahwa aku pantas untukmu melalui janji-janji besar, melainkan karena aku tahu masih ada banyak ruang bagiku untuk bertumbuh.
+
+Aku tidak bisa menjanjikan bahwa semuanya akan mudah. Aku tidak bisa mengatakan bahwa aku punya semua jawabannya atau bahwa setiap rencana yang kita buat akan berjalan persis seperti yang kita bayangkan.
+
+Namun, aku bisa terus belajar, terus memperbaiki diriku, dan bersikap jujur kepadamu tentang keadaanku sekarang dan ke mana aku ingin melangkah.
+
+Dan jika suatu hari nanti mimpi-mimpi kita masing-masing membawa kita menuju masa depan yang sama, aku berharap kita bisa melihat ke belakang dan merasa bangga atas sejauh apa kita telah bertumbuh.
+
+Aku ingin kita merayakan kemajuan satu sama lain, mendukung ambisi masing-masing, dan mengingat bahwa menjalin hubungan bukan berarti kita berhenti bertumbuh menjadi diri kita sendiri.
+
+Melainkan kita memiliki seseorang di samping kita selama menjalani proses itu.
+
+Aku tidak membutuhkan kita untuk mengetahui seluruh masa depan kita hari ini, Khailafa.
+
+Aku hanya berharap, seiring kita terus bertumbuh, kita tetap menyediakan ruang bagi satu sama lain dalam kehidupan yang sedang kita bangun.
+
+Dan jika suatu hari kita berhasil membangun sesuatu yang indah bersama, aku berharap itu terjadi karena kita berdua memilihnya, memperjuangkannya, dan menemukan kebahagiaan dalam setiap prosesnya.
+
+— I don't just want to dream about a future with you. I want to become someone who can help build it with you.`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        },
+        {
+          indexLabel: 'IF I COULD CHOOSE AGAIN',
+          title: 'If I could choose again.',
+          label: 'gratitude and the next chapters that I still want to write together',
+          theme: 'Hati perempuan itu 4x lebih lembut dibanding laki laki. Saat kamu menangis, pembuluh darah kecil dihatimu putus. Saat kamu mengalami kekecewaan, kamu kehilangan 72 hari dari ingatanmu. dan aku tidak mau menjadi penyebab dari semua itu. ',
+          letter: `Jika kamu sudah sampai sejauh ini, ada sesuatu yang ingin kusampaikan kepadamu.
+
+Ketika mulai menyusun kata-kata ini, aku memikirkan semua hal yang ingin kamu ketahui tentang bagaimana aku memandang dirimu. Namun, semakin kupikirkan, semakin aku menyadari bahwa aku bisa menulis seratus halaman dan tetap akan memiliki banyak hal yang belum sempat kusampaikan.
+
+Karena kamu bukan sekadar cerita yang bisa kuselesaikan dalam tujuh bab.
+
+Kamu adalah seseorang yang masih terus kukenal.
+
+Akan selalu ada hal baru untuk kupelajari tentang dirimu, cerita lain yang belum pernah kudengar, mimpi yang belum sepenuhnya kupahami, dan detail kecil lain yang membuatku tersenyum ketika menemukannya.
+
+Dan sejujurnya, aku menyukai itu.
+
+Aku menyukai kenyataan bahwa masih begitu banyak sisi dirimu yang bisa kutemukan, bahkan ketika kita sudah mulai menciptakan kenangan kita sendiri.
+
+Aku tahu kita berdua tidak sempurna. Kita punya cara berpikir masing-masing, perasaan masing-masing, dan hal-hal yang masih perlu kita pelajari sepanjang perjalanan ini.
+
+Namun, aku tidak membutuhkan cerita yang sempurna.
+
+Aku bahagia dengan cerita yang sedang kita tulis bersama, terlebih sekarang kita bisa menikmatinya tanpa membawa kesedihan yang dahulu sempat membuat semuanya terasa sulit.
+
+Aku tidak bisa memberitahumu secara pasti seperti apa setiap bab berikutnya. Hidup punya caranya sendiri untuk memberikan kejutan, dan mungkin akan ada hal-hal yang bahkan belum pernah kita pikirkan.
+
+Namun, aku berharap kita terus memberikan alasan bagi satu sama lain untuk bertahan, untuk tertawa, untuk saling menceritakan hari-hari kita, dan untuk terus menemukan siapa diri kita yang sedang bertumbuh.
+
+Dan jika aku bisa kembali ke awal, dengan mengetahui bahwa masih banyak hal tentang dirimu yang perlu kupelajari, aku tidak akan meminta jalan pintas untuk mendapatkan hatimu.
+
+Aku tetap ingin bertemu denganmu, mendengar cerita-ceritamu, menemukan hal-hal kecil tentang dirimu, dan merasakan bagaimana rasanya membangun sesuatu yang nyata bersamamu.
+
+Karena mengenalmu tidak pernah hanya tentang mencapai momen ketika kamu mencintaiku.
+
+Ini juga tentang semua hal indah yang bisa kita alami selama kita belajar mengenal satu sama lain.
+
+Jadi, Khailafa Nurul Fadilah, terima kasih karena sudah berada di sini, karena mengizinkanku menjadi bagian dari duniamu, dan karena memberikan kesempatan kepada cerita kita untuk menjadi seperti sekarang ini.
+
+Aku bahagia karena orang itu adalah kamu.
+
+Dan jika ada satu hal yang ingin kamu ingat setelah membaca semua ini, jawabannya sederhana:
+
+Kamu tidak harus menjadi orang lain untuk menjadi seseorang yang layak dicintai.
+
+Kamu boleh terus mengejar mimpi-mimpimu, tetap menjadi perempuan yang mandiri, tetap mengambil waktu yang kamu butuhkan untuk dirimu sendiri, dan terus bertumbuh menjadi perempuan yang ingin kamu wujudkan.
+
+Aku juga akan terus bertumbuh menjadi laki-laki yang ingin kuwujudkan dalam diriku.
+
+Dan semoga, kita akan terus menemukan cara-cara indah untuk bertumbuh bersama.
+
+Ini bukan akhir dari cerita kita,
+
+Ini hanyalah tujuh bab kecil dari sebuah cerita yang kuharap bisa terus kita tulis bersama.
+
+— with love, Prasetya Bayu AdhyRahman.`,
+          placeholder: '[Tulis surat untuk part ini di properti letter lewat VS Code.]'
+        }
+      ]
+    };
+
+    /* Tempel URL Web App Google Apps Script di sini jika sudah dideploy. */
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySKVyGHWU0VcortMc0yotW2lTq3PsSGvRxMaUMHOBUYNTUbbdnzvelPbC7wxXsvGdflQ/exec';
+    const state = { view: 'cover', lovePercent: 50 };
+    const app = document.querySelector('#app');
+    const modal = document.querySelector('#contentsModal');
+
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[char]));
+    }
+    function renderLetter(value) {
+      return escapeHTML(value)
+        .replace(/\*\*(.+?)\*\*/gs, '<strong>$1</strong>')
+        .replace(/\*([^*]+?)\*/gs, '<em>$1</em>');
+    }
+    function openView(view) {
+      state.view = view;
+      closeContents();
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function goCover() { openView('cover'); }
+    function goChapter(index) { openView(index); }
+    function goQuestion() { openView('question'); }
+    function goMessage() { openView('message'); }
+    function bookMarker(pageNumber) {
+      const pageText = pageNumber === 0 ? 'cover' : pageNumber + ' / 7';
+      return `<div class="topline"><span class="topline-title">${String(pageNumber).padStart(2, '0')} / THE ART OF WINNING AN ELDEST DAUGHTER'S HEART</span><span class="topline-page">${pageText}</span></div><div class="rule"></div>`;
+    }
+
+    function renderCover() {
+      app.innerHTML = `<section class="view">
+        ${bookMarker(0)}
+        <p class="eyebrow">A LITTLE PLACE TO BREATHE</p>
+        <h1 class="hero-title">Winning her heart<br><span class="accent">is an art.</span></h1>
+        <p class="intro-copy">${escapeHTML(BOOK.subtitle)}</p>
+        <p class="byline">Hello, ${escapeHTML(BOOK.recipient)}.<br>Made with love, by ${escapeHTML(BOOK.author)}.</p>
+        <button class="primary-button" id="openStory" type="button">Open our story ↗</button>
+        <p class="cover-note">take your time · 7 parts · made slowly</p>
+      </section>`;
+      document.querySelector('#openStory').addEventListener('click', () => goChapter(0));
+    }
+
+    function renderChapter(index) {
+      const chapter = BOOK.chapters[index];
+      const letter = String(chapter.letter || '').trim();
+      app.innerHTML = `<section class="view">
+        ${bookMarker(index + 1)}
+        <p class="eyebrow">${escapeHTML(chapter.label)}</p>
+        <h1 class="chapter-title">${escapeHTML(chapter.title)}</h1>
+        <p class="chapter-theme">${escapeHTML(chapter.theme)}</p>
+        <div class="letter-area">
+          <div class="letter-text ${letter ? '' : 'empty'}">${renderLetter(letter || chapter.placeholder)}</div>
+        </div>
+        <nav class="page-nav" aria-label="Chapter navigation">
+          <button class="secondary-button" id="previousButton" type="button">← ${index === 0 ? 'Beginning' : 'Previous part'}</button>
+          <button class="primary-button" id="nextButton" type="button">${index === BOOK.chapters.length - 1 ? 'One last question →' : 'Next part →'}</button>
+        </nav>
+      </section>`;
+      document.querySelector('#previousButton').addEventListener('click', () => index === 0 ? goCover() : goChapter(index - 1));
+      document.querySelector('#nextButton').addEventListener('click', () => index === BOOK.chapters.length - 1 ? goQuestion() : goChapter(index + 1));
+    }
+
+    function renderQuestion() {
+      app.innerHTML = `<section class="view">
+        ${bookMarker(8)}
+        <p class="eyebrow">A QUESTION FOR YOU</p>
+        <h1 class="special-title">How much do you<br><span class="accent">love me?</span></h1>
+        <p class="special-copy">Kalau boleh jujur, berapa persen kamu cinta sama aku?</p>
+        <div class="answer-box">
+          <span class="answer-percent" id="answerPercent">${state.lovePercent}%</span>
+          <label class="sr-only" for="loveRange">Persentase cinta</label>
+          <input class="love-range" id="loveRange" type="range" min="0" max="100" value="${state.lovePercent}">
+          <label class="sr-only" for="loveNumber">Persentase cinta dalam angka</label>
+          <input class="love-number" id="loveNumber" type="number" min="0" max="100" value="${state.lovePercent}"> %
+        </div>
+        <div class="special-actions">
+          <button class="secondary-button" id="questionBack" type="button">← Back to part 07</button>
+          <button class="primary-button" id="questionNext" type="button">Continue to your message ↗</button>
+        </div>
+      </section>`;
+      const range = document.querySelector('#loveRange');
+      const number = document.querySelector('#loveNumber');
+      const percent = document.querySelector('#answerPercent');
+      function update(value) {
+        state.lovePercent = Math.max(0, Math.min(100, Number(value) || 0));
+        range.value = state.lovePercent;
+        number.value = state.lovePercent;
+        percent.textContent = state.lovePercent + '%';
+      }
+      range.addEventListener('input', event => update(event.target.value));
+      number.addEventListener('input', event => update(event.target.value));
+      document.querySelector('#questionBack').addEventListener('click', () => goChapter(6));
+      document.querySelector('#questionNext').addEventListener('click', goMessage);
+    }
+
+    function renderMessage() {
+      app.innerHTML = `<section class="view">
+        ${bookMarker(9)}
+        <p class="eyebrow">ONE MORE THING</p>
+        <h1 class="special-title">Anything you want<br><span class="accent">to tell me?</span></h1>
+        <p class="special-copy">Kalau ada kata-kata yang ingin kamu ucapkan ke aku, tulis di sini.</p>
+        <p class="status">Jawaban ini akan disimpan ke Google Sheet milik Bayu.</p>
+        <textarea class="message-box" id="messageInput" maxlength="1000" placeholder="Tulis pesanmu di sini..."></textarea>
+        <p class="status" id="messageStatus"></p>
+        <div class="special-actions">
+          <button class="secondary-button" id="messageBack" type="button">← Back to question</button>
+          <button class="primary-button" id="saveAnswer" type="button">Save your answer ↗</button>
+        </div>
+      </section>`;
+      document.querySelector('#messageBack').addEventListener('click', goQuestion);
+      document.querySelector('#saveAnswer').addEventListener('click', async () => {
+        const input = document.querySelector('#messageInput');
+        const status = document.querySelector('#messageStatus');
+        const button = document.querySelector('#saveAnswer');
+        const message = input.value.trim();
+        if (!message) { status.textContent = 'Tulis pesannya dulu ya.'; input.focus(); return; }
+        if (!GOOGLE_SCRIPT_URL) { status.textContent = 'Google Sheets belum dikonfigurasi.'; return; }
+        button.disabled = true;
+        button.textContent = 'Saving...';
+        try {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ percent: state.lovePercent, message })
+          });
+          status.textContent = 'Permintaan penyimpanan sudah dikirim. Cek Google Sheets untuk konfirmasi.';
+          button.textContent = 'Sent ✓';
+          input.value = '';
+        } catch (error) {
+          status.textContent = 'Belum terkirim. Cek koneksi atau URL Apps Script.';
+          button.disabled = false;
+          button.textContent = 'Save your answer ↗';
+        }
+      });
+    }
+
+    function render() {
+      if (state.view === 'cover') renderCover();
+      else if (typeof state.view === 'number') renderChapter(state.view);
+      else if (state.view === 'question') renderQuestion();
+      else renderMessage();
+    }
+
+    function openContents() {
+      document.querySelector('#contentsList').innerHTML = BOOK.chapters.map((chapter, index) => `<li><button type="button" data-index="${index}"><span>${String(index + 1).padStart(2, '0')}</span>${escapeHTML(chapter.indexLabel)}</button></li>`).join('');
+      document.querySelectorAll('#contentsList button').forEach(button => button.addEventListener('click', () => goChapter(Number(button.dataset.index))));
+      modal.classList.add('open');
+    }
+    function closeContents() { modal.classList.remove('open'); }
+
+    document.querySelector('#indexButton').addEventListener('click', openContents);
+    document.querySelector('#closeContents').addEventListener('click', closeContents);
+    modal.addEventListener('click', event => { if (event.target === modal) closeContents(); });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeContents();
+      if (typeof state.view !== 'number') return;
+      if (event.key === 'ArrowLeft') state.view > 0 ? goChapter(state.view - 1) : goCover();
+      if (event.key === 'ArrowRight') state.view < BOOK.chapters.length - 1 ? goChapter(state.view + 1) : goQuestion();
+    });
+
+    render();
+  </script>
+</body>
+</html>
